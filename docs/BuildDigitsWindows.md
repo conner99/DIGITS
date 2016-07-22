@@ -1,7 +1,7 @@
 # Build DIGITS on Windows
 
 ## Prerequisites
-- Python2
+- Python2 (Miniconda2)
 - CUDA 7.5
 - CuDNN 5.1
 - Caffe
@@ -11,22 +11,18 @@
 
 ## Installing prerequisites
 
-### Python2
-Download and install Python 2.7.11 64bit from Python's official site (https://www.python.org/ftp/python/2.7.11/python-2.7.11.amd64.msi).
+### Python2 (Miniconda2)
+Download and install Python 2.7.11 64bit from Miniconda's official site (https://repo.continuum.io/miniconda/Miniconda2-4.0.5-Windows-x86_64.exe).
 Please select Add Python Path during installation.
 
-Download numpy, scipy, matplotlib, scikit-image, h5py from Unofficial Windows Binaries for Python Extension Packages webpage at (http://www.lfd.uci.edu/~gohlke/pythonlibs/).
-Remember to download correct version (2.7) and architecture (64-bit).
-
-Additionally, download gevent v1.0.2 at the same site.
+Install Pillow, scipy, h5py with the conda package manager.
 Run command prompt (cmd.exe) as administrator, and issue the following commands.
 ```
 python -m pip install cython
-python -m pip install numpy-1.11.0+mkl-cp27-cp27m-win_amd64.whl
-python -m pip install scipy-0.17.0-cp27-none-win_amd64.whl
-python -m pip install matplotlib-1.5.1-cp27-none-win_amd64.whl
-python -m pip install scikit_image-0.12.3-cp27-cp27m-win_amd64.whl
-python -m pip install h5py-2.6.0-cp27-cp27m-win_amd64.whl
+python -m pip install setuptools --ignore-installed
+conda install -c anaconda Pillow=3.1.1
+conda install -c anaconda scipy=0.17.0
+conda install -c anaconda h5py
 ```
 
 If the installation process complains compiler not found, you need to install Microsoft Visual C++ Compiler for Python 2.7, downloaded at (https://www.microsoft.com/en-us/download/details.aspx?id=44266).
@@ -51,7 +47,6 @@ Please select CuDNN 5.1 for CUDA 7.5.
 Caffe can be obtained at (https://github.com/bvlc/caffe/tree/windows).
 Note you need to install Visual Studio 2013 to build Caffe.
 Before building it, enable Python support, CUDA and CuDNN by following instructions on the same page.
-Because we are using Official CPython, please change the value of PythonDir tag from C:\Miniconda2\ to C:\PYTHON27\ (assume your CPython installation is the default C:\PYTHON27\).
 After building it, configure your Python environment to include pycaffe, which is described at (https://github.com/bvlc/caffe/tree/windows#remark).
 Your caffe.exe will be inside Build\x64\Release  directory (if you made release build).
 
@@ -77,9 +72,9 @@ After the above command, check if all required Python dependencies are met by co
 python -m pip list
 ```
 
-If gevent is not v1.0.2, install it from the whl file, downloaded previously from (http://www.lfd.uci.edu/~gohlke/pythonlibs/).
+If gevent is not v1.0.2, install it with.
 ```
-python -m pip install gevent-1.0.2-cp27-none-win_amd64.whl
+conda install -c anaconda gevent=1.0.2
 ```
 
 It should uninstall the gevent you had, and install gevent 1.0.2.

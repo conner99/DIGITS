@@ -7,6 +7,11 @@ DIGITS (the **D**eep Learning **G**PU **T**raining **S**ystem) is a webapp for t
 
 # Installation
 
+Note on Windows:
+- you need Caffe from the [BVLC/windows](https://github.com/BVLC/caffe/tree/windows)
+  or the [Microsoft/master](https://github.com/Microsoft/caffe) Branch.
+- to build Digits, visit [docs/BuildDigitsWindows.md](docs/BuildDigitsWindows.md) for instructions.
+
 If you are using Ubuntu 14.04, you can install pre-built packages for the latest major release.
 Visit [docs/UbuntuInstall.md](docs/UbuntuInstall.md) for instructions.
 
